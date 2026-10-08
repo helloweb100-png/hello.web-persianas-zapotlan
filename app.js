@@ -20,7 +20,7 @@
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
-  const WA_NUMBER = '523412420903';
+  const WA_NUMBER = '523411057793';
   const waUrl = (msg) => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
 
   /** Ejecuta un módulo aislado: si falla, el resto de la página sigue funcionando. */
