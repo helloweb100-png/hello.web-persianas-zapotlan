@@ -734,6 +734,20 @@
     });
   });
 
+  /* ---------- 8b. Exterior: los videos se reproducen solo mientras están a la vista ---------- */
+  safe('exterior-video', () => {
+    const vids = $$('video[data-inview]');
+    if (!vids.length) return;
+    if (reduced || !('IntersectionObserver' in window)) return;   // sin autoplay: se usan los controles nativos
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { const p = e.target.play(); if (p && p.catch) p.catch(() => { /* autoplay bloqueado */ }); }
+        else e.target.pause();
+      });
+    }, { threshold: 0.35 });
+    vids.forEach((v) => io.observe(v));
+  });
+
   /* ---------- 9. Proceso: línea que se llena con el scroll ---------- */
   safe('process', () => {
     const list = $('#steps');

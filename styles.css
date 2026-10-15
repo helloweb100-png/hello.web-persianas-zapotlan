@@ -4,7 +4,7 @@
    Paleta extraída del logotipo: verde salvia #98987A sobre blanco cálido.
    Índice:
      00 Tokens · 01 Base · 02 Utilidades · 03 Botones · 04 Loader · 05 Navegación
-     06 Hero · 07 Ticker · 08 Manifiesto · 09 Explorador · 10 Colección
+     06 Hero · 07 Ticker · 08 Manifiesto · 09 Explorador · 10 Colección · 10b Exterior · 10c Tonos
      11 Proceso · 12 Banda · 13 Galería · 14 FAQ · 15 Contacto · 16 Footer
      17 Flotante WhatsApp · 18 Lightbox · 19 Reveal · 20 Keyframes · 21 Responsive · 22 Movimiento reducido
    ========================================================================== */
@@ -1057,6 +1057,33 @@ input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px 
 .col__bar { position: relative; flex: 1; height: 1px; background: rgba(247, 244, 236, .16); }
 .col__bar i { position: absolute; inset: -1px 0; height: 3px; transform-origin: 0 50%; transform: scaleX(var(--v, 0)); background: linear-gradient(90deg, var(--c-sage-500), var(--c-sun)); }
 
+/* ============ 10b · EXTERIOR (persianas de exterior con perfilería reforzada) ============ */
+.ext { background: var(--c-linen); }
+.ext__grid { display: grid; gap: .9rem; }
+.ext__item { position: relative; border-radius: 22px; overflow: hidden; background: var(--c-ink-800); aspect-ratio: 16 / 9; }
+.ext__item--photo { aspect-ratio: 4 / 3; }
+.ext__item video, .ext__item img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: var(--pos, 50% 50%); }
+.ext__cap {
+  position: absolute; inset: auto 0 0 0; pointer-events: none;
+  padding: 2.6rem 1rem .85rem; color: #fff;
+  font: 500 .72rem/1.2 var(--f-body); letter-spacing: .16em; text-transform: uppercase;
+  background: linear-gradient(180deg, transparent, rgba(16, 17, 12, .8));
+}
+.ext__cta { margin-top: clamp(2rem, 5vw, 3rem); }
+
+/* ============ 10c · TONOS (gamas media, alta y premium) ============ */
+.tones { background: var(--c-ink-900); color: var(--c-cream); }
+.tones__grid { display: grid; gap: 1rem; }
+.tone { overflow: hidden; border-radius: 26px; background: var(--c-ink-800); border: 1px solid rgba(255, 255, 255, .09); }
+.tone:hover { border-color: rgba(243, 221, 169, .45); }
+.tone__media { aspect-ratio: 16 / 9; overflow: hidden; }
+.tone__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.4s var(--ease-out); }
+.tone:hover .tone__media img { transform: scale(1.06); }
+.tone__body { display: flex; flex-direction: column; gap: .55rem; padding: 1.3rem 1.35rem 1.5rem; }
+.tone__tag { font: 500 .64rem/1 var(--f-body); letter-spacing: .2em; text-transform: uppercase; color: var(--c-sun); }
+.tone h3 { font: 500 clamp(1.7rem, 6.4vw, 2.1rem)/1.05 var(--f-display); letter-spacing: -.01em; }
+.tone .link-arrow { margin-top: .5rem; align-self: flex-start; color: var(--c-sun); }
+
 /* ============ 11 · PROCESO ============ */
 .process { background: var(--c-cream); }
 .process__grid { display: grid; gap: 2.6rem; }
@@ -1377,6 +1404,7 @@ html.menu-open .fab { opacity: 0; pointer-events: none; transition-delay: 0s; }
   .scroll-cue { display: flex; }
   .section__head--split { grid-template-columns: 1.25fr .75fr; align-items: end; gap: 3rem; }
   .masonry { columns: 3; }
+  .ext__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
   .nav__cta { display: inline-flex; }
 }
 
@@ -1410,6 +1438,8 @@ html.menu-open .fab { opacity: 0; pointer-events: none; transition-delay: 0s; }
   .lab__demo { position: sticky; top: calc(var(--nav-h) + 1.5rem); }
   .lab-tabs { flex-wrap: wrap; overflow: visible; margin: 0; padding: 0 0 1rem; }
   .lab .btn { width: auto; }
+
+  .tones__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem; }
 
   .process__grid { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(3rem, 7vw, 7rem); }
   .process__head { position: sticky; top: calc(var(--nav-h) + 2rem); }
